@@ -2,7 +2,7 @@
 - 本文档根据Scene N1框架特性编写
 
 > 如果你已经熟悉Scene9的配置，只想了解N1做出的变更，请关注这些
-- [核心分配](./cpuset.md) 、[特性](./features.md)
+- [核心分配](./cpuset.md) 、[特性](./features.md)、[传感器](./sensor.md)
 - 命名 在SceneN1中，所有配置文件文件名统一改为小写字母
 
 ## 组成
@@ -28,15 +28,16 @@
 ## [空配置](./empty.md)
 ## [基础](./basic.md)
 ## [场景](./apps.md)
-## [类目](./categories.md)
+## [应用类目](./categories.md)
 ## [传感器](./sensor.md)
 ## [核心分配](./cpuset.md)
 ## [交互状态](./state.md)
-## [预设](./presets.md)
-## [别名](./alias.md)
+## [预设集](./presets.md)
+## [路径别名](./alias.md)
 ## [特性](./features.md)
-## [描述](./manifest.md)
+## [描述清单](./manifest.md)
 ## [静态配置](./conf.md)
+## [CPU限制条件叠加](./cpu_freq.md)
 
 <br />
 

@@ -25,8 +25,8 @@
           "props": [],
           "rules": [
             {
-              "threshold": [-1, 15],
-              "note": "[capacity] < MAX && [capacity] >= 15, Removing GPU restrictions",
+              "threshold": [-1, 16],
+              "note": "[capacity] < MAX && [capacity] >= 16, Removing GPU restrictions",
               "enter_once" : [],
               "enter": [
                 ["/proc/mali/dvfs_enable", "1"], ["/proc/gpufreq/gpufreq_opp_freq", "0"]
@@ -52,7 +52,7 @@
 ```
 
 > 这个示例说的是，每5秒读取一次电池电量百分比<br>
-> 如果电量百分比 >= 15，恢复GPU频率<br>
+> 如果电量百分比 >= 16，恢复GPU频率<br>
 > 如果电量百分比 < 16，限制GPU频率为370Mhz<br>
 
 > sensor 可以是一个文件路径，或者一个在下文提到的虚拟传感器名称
@@ -60,6 +60,7 @@
 > interval指轮询间隔，单位是毫秒<br>
 > enter 规则命中时执行的属性修改和函数调用，连续命中同一规则会重复执行<br>
 > enter_once 规则命中时执行的属性修改和函数调用，连续命中同一规则时只会执行一次<br>
+> exit_once 规则从命中变为不命中时执行的属性修改和函数调用，只执行一次<br>
 > note 是个注释属性，与运行逻辑无关<br>
 
 #### sensor rule配置改进写法
