@@ -113,7 +113,7 @@
       ["/dev/cpuset/sf/cpus", "#2-6"],
       ["$sched_boost", "0"],
       ["@hispeed_load", "80", "80", "80", "80"],
-      ["@gesture", "PAUSE"],
+      ["@input_detect", "false"],
       ["@values", "latency", "2000", "2000", "2000", "2000", "2000", "2000", "2000", "2000"],
       ["$mod_percent", "100"]
     ],

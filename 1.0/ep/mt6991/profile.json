@@ -74,11 +74,11 @@
       ["@values", "latency", "1000", "10", "1000", "10", "1000", "10"],
       ["@limiter", "NONE"],
       ["@cpuset", "0-3", "0-5", "0-5", "0-7"],
-      ["@gesture", "PAUSE"],
+      ["@input_detect", "false"],
       ["$gpu_max_freq", "#7"],
       ["/sys/module/mtk_fpsgo/parameters/boost_affinity", "#0"],
       ["@ioctl", "/proc/perfmgr_powerhal/ioctl_powerhal", "0x40046703", "1"],
-      ["@ddr_l3_booster"]
+      ["@ddr_l3_booster", "true", "true"]
     ],
     "limiter_off": [
       ["/proc/game_opt/disable_cpufreq_limit", "#1"],

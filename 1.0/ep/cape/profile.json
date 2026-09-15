@@ -99,7 +99,7 @@
       ["$sf_cpus", "0-5"],
       ["$sched_boost", "#0"],
       ["$mod_percent", "100"],
-      ["@gesture", "PAUSE"]
+      ["@input_detect", "false"]
     ],
 
     "powersave_active": [

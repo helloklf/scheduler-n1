@@ -126,7 +126,7 @@
       ["$sched_boost", "#0"],
       ["$fpsgo", "#1"],
       ["$ged_kpi", "#0"],
-      ["@gesture", "PAUSE"],
+      ["@input_detect", "false"],
       ["@ioctl", "/proc/cpuqosmgr/cpuqos_ioctl", "0x4014670E", "0"],
       ["/sys/devices/system/cpu/cpuqos/cpuqos_set_cache_size", "1:3:3"]
     ],

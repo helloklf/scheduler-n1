@@ -5,7 +5,7 @@
     ["/sys/module/mtk_fpsgo/parameters/p_perf", "1"],
     ["/sys/module/mtk_fpsgo/parameters/better_perf", "1"],
     ["/sys/kernel/fpsgo/fbt/enable_ceiling", "#0"],
-    ["@ddr_l3_booster"]
+    ["@ddr_l3_booster", "true", "true"]
   ],
   "modes": [
     {

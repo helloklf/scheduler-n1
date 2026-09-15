@@ -2,7 +2,7 @@
   "friendly": "游戏",
   "call": [
     ["@preset", "common_gaming"],
-    ["@ddr_l3_booster"]
+    ["@ddr_l3_booster", "true", "true"]
   ],
   "modes": [
     {

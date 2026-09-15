@@ -37,6 +37,8 @@
 ## [特性](./features.md)
 ## [描述清单](./manifest.md)
 ## [静态配置](./conf.md)
+## [所有函数](./functions.md)
+# 原理相关
 ## [CPU限制条件叠加](./cpu_freq.md)
 
 <br />

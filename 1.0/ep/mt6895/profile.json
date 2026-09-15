@@ -112,7 +112,7 @@
       ["$ddr_freq_cust", "0"],
       ["$ddr_max", "#6400000000"],
       ["@limiter", "NONE"],
-      ["@ddr_l3_booster"]
+      ["@ddr_l3_booster", "true", "true"]
     ],
 
     "powersave_active": [

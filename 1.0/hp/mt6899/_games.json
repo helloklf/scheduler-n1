@@ -57,7 +57,7 @@
         ["@governor", "schedutil", "sugov_ext"],
         ["@cpu_freqs_max", "#2000000", "#3000000", "#3250000"],
         ["@cpu_freqs_min", "800000", "800000", "900000"],
-        ["@ddr_l3_booster"]
+        ["@ddr_l3_booster", "true", "true"]
       ],
       "fas": {
         "use": "whitelist",

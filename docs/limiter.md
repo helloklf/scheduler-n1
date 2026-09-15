@@ -244,5 +244,5 @@
 
   // 根据CPU和DDR频率映射关系，按实际cycles boost L3/DDR频率下限。对于mtk设备需要先参考 conf.md 定义 ddr_mapping.conf
   // 什么时候用呢？比如，mtk的内存频率调度很烂，用ep的时候ddr频率跑不上去性能难以释放，所以需要使用@ddr_l3_booster辅助ddr升频
-  ["@ddr_l3_booster"]
+  ["@ddr_l3_booster", "true", "true"]
   ```

@@ -136,7 +136,7 @@
       ["$bus_qos", "0"],
       ["/proc/game_opt/disable_cpufreq_limit", "0"],
       ["$mod_percent", "95"],
-      ["@gesture", "PAUSE"],
+      ["@input_detect", "false"],
       ["$bus_ddr", "3196000"]
     ],
 

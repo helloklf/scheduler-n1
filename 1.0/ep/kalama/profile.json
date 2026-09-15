@@ -94,7 +94,7 @@
       ["@limiter", "NONE"],
       ["@cpuset", "0-2", "0-5", "0-5", "0-7"],
       ["$sched_boost", "#0"],
-      ["@gesture", "PAUSE"],
+      ["@input_detect", "false"],
       ["@values", "latency", "2000", "2000", "2000", "2000", "2000", "2000"],
       ["$mod_percent", "100"]
     ],
