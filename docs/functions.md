@@ -13,6 +13,7 @@
   ```
 
 - @shell
+  > 运行shell脚本
   ```json
   ["@shell", "/xxx/yyy/zzz.sh"]
   ```
