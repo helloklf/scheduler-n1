@@ -105,6 +105,7 @@
 
     "powersave_active": [
       ["@preset", "common_active"],
+      ["@cpu_freqs_max", "1603200", "#1891200", "#2544000", "#2198400"],
       ["@cpu_freqs_min", "#643200", "#691200", "#691200", "#1891200"],
       ["@target_loads",
         "80 1603200:90",
@@ -114,6 +115,7 @@
     ],
     "powersave_inactive": [
       ["@preset", "common_inactive"],
+      ["@cpu_freqs_max", "1603200", "#1891200", "#1900800", "#1891200"],
       ["@target_loads",
         "85 1036800:90",
         "85 844800:90 1536000:95",
@@ -123,6 +125,7 @@
 
     "balance_active": [
       ["@preset", "common_active"],
+      ["@cpu_freqs_max", "1795200", "#1891200", "#2812800", "#2793600"],
       ["@cpu_freqs_min", "835200", "691200", "691200", "1891200"],
       ["@target_loads",
         "80 1603200:90",
@@ -132,6 +135,7 @@
     ],
     "balance_inactive": [
       ["@preset", "common_inactive"],
+      ["@cpu_freqs_max", "1603200", "#1891200", "#2544000", "#2198400"],
       ["@target_loads",
         "85 1036800:90",
         "85 844800:90 1536000:95",
@@ -141,6 +145,7 @@
 
     "performance_active": [
       ["@preset", "common_active"],
+      ["@cpu_freqs_max", "#1795200", "#1891200", "#3043200", "#3148800"],
       ["@cpu_freqs_min", "835200", "691200", "691200", "1891200"],
       ["@target_loads",
         "80 1603200:90",
@@ -150,6 +155,7 @@
     ],
     "performance_inactive": [
       ["@preset", "common_inactive"],
+      ["@cpu_freqs_max", "1603200", "#1891200", "#2812800", "#2400000"],
       ["@target_loads",
         "85 1036800:90",
         "85 1017600:90 1536000:95",
@@ -159,6 +165,7 @@
 
     "fast_active": [
       ["@preset", "common_active"],
+      ["@cpu_freqs_max", "#1795200", "#1891200", "#3398400", "#3542400"],
       ["@cpu_freqs_min", "835200", "844800", "816000", "1891200"],
       ["@target_loads",
         "80 1603200:85",
@@ -168,6 +175,7 @@
     ],
     "fast_inactive": [
       ["@preset", "common_inactive"],
+      ["@cpu_freqs_max", "#1795200", "#1891200", "#3043200", "#2793600"],
       ["@target_loads",
         "85 1603200:90",
         "83 1718400:87 1891200:95",
@@ -182,7 +190,6 @@
       ],
       "app": [
         ["@preset", "common_app"],
-        ["@cpu_freqs_max", "1603200", "#1891200", "#1900800", "#2044800"],
         ["@preset", "powersave_active"]
       ],
       "game": [
@@ -192,7 +199,6 @@
     "balance": {
       "app": [
         ["@preset", "common_app"],
-        ["@cpu_freqs_max", "1795200", "#1891200", "#2236800", "#2400000"],
         ["@preset", "balance_active"]
       ],
       "game": [
@@ -202,7 +208,6 @@
     "performance": {
       "app": [
         ["@preset", "common_app"],
-        ["@cpu_freqs_max", "#1795200", "#1891200", "#2544000", "#2793600"],
         ["@preset", "performance_active"]
       ],
       "game": [
@@ -213,7 +218,6 @@
     "fast": {
       "app": [
         ["@preset", "common_app"],
-        ["@cpu_freqs_max", "#1795200", "#1891200", "#2812800", "#2976000"],
         ["@preset", "fast_active"]
       ],
       "game": [

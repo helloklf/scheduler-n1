@@ -5,15 +5,15 @@
   ],
   "state": {
     "active": [
-      ["@cpu_freq", "policy0", "300MHz", "1500MHz"],
+      ["@cpu_freq", "policy0", "300MHz", "max"],
       ["@cpu_freq", "policy2", "1000MHz", "max"],
-      ["@cpu_freq", "policy4", "1000MHz", "2300MHz"],
-      ["@cpu_freq", "policy8", "1300MHz", "2500MHz"]
+      ["@cpu_freq", "policy4", "1000MHz", "3000MHz"],
+      ["@cpu_freq", "policy8", "1300MHz", "2600MHz"]
     ],
     "inactive": [
-      ["@cpu_freq", "policy0", "min", "1400MHz"],
-      ["@cpu_freq", "policy2", "min", "1800MHz"],
-      ["@cpu_freq", "policy4", "min", "1800MHz"],
+      ["@cpu_freq", "policy0", "min", "max"],
+      ["@cpu_freq", "policy2", "min", "max"],
+      ["@cpu_freq", "policy4", "min", "2400MHz"],
       ["@cpu_freq", "policy8", "min", "2100MHz"]
     ]
   }
