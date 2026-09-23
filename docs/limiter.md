@@ -79,7 +79,7 @@
 | :- | :- |
 | upper | 根据负载和余量调整频率上限，频率写入`scaling_max_freq` |
 | bottom | 根据负载和余量调整频率下限，频率写入`scaling_min_freq` |
-| performance | 将CPU调速器更改为performance，并以upper模式继续工作 |
+| full | 将CPU调速器更改为performance，并以upper模式继续工作 |
 | ~~boost~~ | 类似于bottom模式，但使用Hw Cycles统计负载（已废弃） |
 
 > 由于Limiter现在默认使用Perf Event统计负载，因此废弃 `boost` 模式

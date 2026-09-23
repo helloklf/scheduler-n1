@@ -11,6 +11,7 @@
   FreqMgrFastShareBoost // 文件传输Boost(FastShare传输文件时自动调用)
   FreqMgrReclaimBoost   // 主动Reclaim(增强LMK执行主动压缩时自动调用)
   FreqMgrIOBoost        // 文件操作(文件浏览进行文件操作时自动调用)
+  FreqMgrKswapdBoost    // kswapd0持续活动Boost(由增强lmk模块调用)
   ```
 
 - 这里的“理由”分为“Boost”和“Limit”两种

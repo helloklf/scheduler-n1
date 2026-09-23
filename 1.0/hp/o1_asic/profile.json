@@ -6,9 +6,7 @@
     "cpu_max_6": "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq",
     "cpu_min_8": "/sys/devices/system/cpu/cpufreq/policy8/scaling_min_freq",
     "cpu_max_8": "/sys/devices/system/cpu/cpufreq/policy8/scaling_max_freq",
-    "sched_boost": "/proc/sys/walt/sched_boost",
     "glk_disable": "/sys/module/migt/parameters/glk_disable",
-    "input_boost": "/proc/sys/walt/input_boost/sched_boost_on_input",
     "core_ctl": "/sys/devices/system/cpu/cpu8/core_ctl/enable"
   },
   "features": {
@@ -19,14 +17,12 @@
     "gesture_boost": {
       "enable": true,
       "enter": [
-        ["$cpu_max_0", "^1795200"],
-        ["$cpu_max_2", "^1891200"],
-        ["$cpu_max_6", "^2678400"],
-        ["$cpu_max_8", "^2592000"],
-        ["$sched_boost", "1"]
+        ["$cpu_max_0", "#1795200"],
+        ["$cpu_max_2", "#1891200"],
+        ["$cpu_max_6", "^3120000"],
+        ["$cpu_max_8", "^2976000"]
       ],
       "exit": [
-        ["$sched_boost", "0"]
       ]
     }
   },
@@ -83,7 +79,6 @@
     ],
     "common_inactive": [
       ["@cpu_freqs_min", "334230", "417790", "691200", "1891200"],
-      ["$sched_boost", "0"],
       ["@values", "xres_c0", "#835200", "#1036800", "#1036800"],
       ["@values", "xres_c2", "#844800", "#844800", "#844800"],
       ["@values", "xres_c3", "#816000", "#816000", "#816000"]
@@ -99,7 +94,6 @@
       ["@limiter", "NONE"],
       ["@cpuset", "0-1", "0-3", "2-7", "2-9"],
       ["/dev/cpuset/sf/cpus", "#2-6"],
-      ["$sched_boost", "0"],
       ["$core_ctl", "#0"]
     ],
 
