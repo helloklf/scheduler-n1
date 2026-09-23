@@ -166,14 +166,13 @@ hide_value /sys/kernel/fpsgo/fbt/limit_cfreq 0
 hide_value /sys/kernel/fpsgo/fbt/limit_rfreq 0
 hide_value /sys/kernel/fpsgo/fbt/limit_cfreq_m 0
 hide_value /sys/kernel/fpsgo/fbt/limit_rfreq_m 0
+hide_value /proc/mtk_scheduler/control_idle_util_enable 0
 
 # FEAS dependence, But it will not work if you change the frequency, So disable it
 lock_value 0 /sys/module/mtk_fpsgo/parameters/perfmgr_enable
 hide_value /sys/kernel/fpsgo/fbt/enable_ceiling 0
 
-
 # echo 0 > /sys/module/millet_core/parameters/millet_freeze_switch
-
 
 # OnePlus
 if [[ -d  /proc/game_opt ]]; then

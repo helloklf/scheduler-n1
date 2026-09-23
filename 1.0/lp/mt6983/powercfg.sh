@@ -140,6 +140,8 @@ hide_value /sys/kernel/fpsgo/fbt/limit_cfreq 0
 hide_value /sys/kernel/fpsgo/fbt/limit_rfreq 0
 hide_value /sys/kernel/fpsgo/fbt/limit_cfreq_m 0
 hide_value /sys/kernel/fpsgo/fbt/limit_rfreq_m 0
+hide_value /proc/mtk_scheduler/control_idle_util_enable 0
+
 # lock_value /sys/kernel/ged/hal/fastdvfs_mode 0
 hide_value /sys/kernel/fpsgo/fbt/enable_ceiling 0
 lock_value 0 /sys/module/cpufreq_bouncing/parameters/enable
