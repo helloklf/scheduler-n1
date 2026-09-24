@@ -170,7 +170,6 @@ set_cpuset surfaceflinger "top-app/sf"
 set_cpuset touch_report "foreground"
 set_cpuset system_server "foreground"
 set_cpuset update_engine "top-app/$cpus"
-set_cpuset kswapd 'foreground'
 
 
 for file in /sys/devices/system/cpu/bus_dcvs/LLCC/*/min_freq; do

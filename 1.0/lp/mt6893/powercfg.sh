@@ -243,7 +243,6 @@ change_task_cpuset() {
 
 process_opt() {
   change_task_cpuset system_server top-app
-  change_task_cpuset kswapd0 foreground
   change_task_cpuset com.omarea.vtools foreground
   change_task_cpuset surfaceflinger foreground
 }

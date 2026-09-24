@@ -205,7 +205,6 @@ set_cpuset audioserver 'foreground'
 set_cpuset android.hardware.audio.service_64 'foreground'
 set_cpuset vendor.qti.hardware.display.composer-service "top-app/$cpus"
 set_cpuset vendor.qti.hardware.perf-hal-service 'foreground'
-set_cpuset kswapd 'foreground'
 
 for file in /sys/devices/system/cpu/bus_dcvs/LLCC/*/min_freq; do
   lock_value 300000 $file
