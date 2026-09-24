@@ -151,7 +151,7 @@
       {
         "friendly": "所有APP",
         "packages": ["*"],
-        `"import": "Apps.json"`
+        "import": "Apps.json"
       }
     ]
   }
