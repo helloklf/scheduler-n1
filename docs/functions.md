@@ -30,7 +30,7 @@
   ```
 
 - @ttj
-  > 设置CPU/GPU温度墙，适用于较少的处理器，如：天玑8100~9500，骁龙845 855
+  > 设置CPU/GPU温度墙，适用于少数处理器，如：天玑8100~9500，骁龙845 855
   ```json
   ["@ttj", "85000"]
   ```
@@ -111,7 +111,7 @@
   ["@ddr_l3_booster"]
   ```
 
-- @core_ctl `变更`
+- @core_ctl `相对Scene9 有变更`
   ```json
   // 启用，设置[cluster0], [cluster1]...是否启用CoreCtl
   ["@core_ctl", "false", "false", "true"]
@@ -121,7 +121,7 @@
   ["@core_ctl"]
   ```
 
-- @input_detect `替代 @gesture`
+- @input_detect `取代Scene9的 @gesture`
   > 临时启用或禁用输入检测(在不需要切换active/inactive状态时用，减少检测开销)
   ```json
   // 启用
@@ -174,7 +174,7 @@
   ```
 
 - @mtk_renew
-  > 一个特殊的函数，用于还原性能控制参数所有者和secontex。这是因为天玑部分处理器，如果系统perfhal写入值失败，会一直重试可能导致待机耗电异常。主要在D8100和D9000上用到
+  > 一个特殊的函数，用于还原性能控制参数所有者和selinux context。这是因为天玑部分处理器，如果系统perfhal写入值失败，会一直重试可能导致待机耗电异常。主要在D8100和D9000上用到
   ```json
   ["@mtk_renew"]
   ```
@@ -193,7 +193,7 @@
   ```
 
 - @apply
-  > 和@preset类似，区别是前者会对路径写入去重，剔除框架认为会被覆盖的写入，@apply则不管是否重复一律写入
+  > 和@preset类似，区别是@preset会对路径写入去重，剔除框架认为会被覆盖的写入，@apply则不管是否重复一律写入
   ```json
   ["@apply", "powersave_active"]
   ```

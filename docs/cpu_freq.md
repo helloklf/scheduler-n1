@@ -23,16 +23,16 @@
 - LimitMax的行为是限制频率上限
   > 例如：多个条件分别设置了 800 900 100，最终生效的事其中的最小值 800
 
-- BoostMax的行为是提高频率下限
-  > 例如：多个条件分别设置了 800 900 100，最终生效的事其中的最小值 1000
+- BoostMax的行为是提高频率上限
+  > 例如：多个条件分别设置了 800 900 100，最终生效的事其中的最大值 1000
 
 - BoostMax的意思是突破LimitMax设定的限制，
   > 例如：省电模式本该限制1.6GHz，但此时正在冷启动应用，就可以以`FreqMgrLauncherBoost`理由，短时间突破限制提升到更高频率
 
 
-### FreqMgrUniversalLimit 通用的/基础 设定
+### FreqMgrUniversalLimit ：通用的/基础 设定
   ```json
-  // 在这里分别制定了省电模式下，一般app 和 游戏 中的CPU频率上限，
+  // 在这里分别指定了省电模式下，一般app 和 游戏 中的CPU频率上限，
   // 它是一个通用设定，也就是说如果不触发什么特别的条件，CPU将一直保持这个限制
   {
     "schemes": {
@@ -49,7 +49,7 @@
   }
   ```
 
-### FreqMgrSensorLimit 由传感器触发的限制
+### FreqMgrSensorLimit ：由传感器触发的限制
   ```json
   // 在 FreqMgrUniversalLimit 的基础上，增加了Sensor定义，目的是根据电量调整CPU限制
   // 这里只针对原神这个游戏，写了一条规则，电量 < 15% 时，大核限制 2133MHz

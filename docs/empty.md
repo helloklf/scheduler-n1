@@ -1,41 +1,42 @@
 ## 空配置
 
 - 如下所示，这是一个最基本的`profile.json`配置格式
-> reset 部分表示每次每次发生档位切换前要执行的“重置”
-> `schemes` 的五个子项分别对应SCENE的5个模式
+> reset 部分表示每次发生档位切换前要执行的“重置”，也可以认为是最“公共”的设定<br>
+> 当然，如果是一次写入永不变更的参数，可以直接去powercfg.sh写<br>
+> `schemes` 的五个子项分别对应Scene的5个模式
 
-```json
-{
-  "reset": [],
-  "schemes": {
-    "powersave": {
-      "call": [],
-      "app": [],
-      "game": []
-    },
-    "balance": {
-      "call": [],
-      "app": [],
-      "game": []
-    },
-    "performance": {
-      "call": [],
-      "app": [],
-      "game": []
-    },
-    "fast": {
-      "call": [],
-      "app": [],
-      "game": []
-    },
-    "pedestal": {
-      "call": [],
-      "app": [],
-      "game": []
+  ```json
+  {
+    "reset": [],
+    "schemes": {
+      "powersave": {
+        "call": [],
+        "app": [],
+        "game": []
+      },
+      "balance": {
+        "call": [],
+        "app": [],
+        "game": []
+      },
+      "performance": {
+        "call": [],
+        "app": [],
+        "game": []
+      },
+      "fast": {
+        "call": [],
+        "app": [],
+        "game": []
+      },
+      "pedestal": {
+        "call": [],
+        "app": [],
+        "game": []
+      }
     }
   }
-}
-```
+  ```
 
 | KEY | NAME |
 | :- | :- |

@@ -20,7 +20,7 @@
 {
   "version": "FAS Beta",
   "versionCode": 20230528001,
-  "author": "SCENE6",
+  "author": "SceneN1",
   "projectUrl": "http://vtools.omarea.com/",
   "features": {
     "pedestal": false
@@ -39,7 +39,7 @@
 
 #### pedestal 底座模式
 - 底座模式被定义为无需考虑能耗的模式，
-- 如果声明`pedestal`为`true`，用户则可以在SCENE里启用底座模式
+- 如果声明`pedestal`为`true`，用户则可以在Scene里启用底座模式
 
 
 ### 外部配置（第三方调度）对接

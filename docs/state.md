@@ -8,11 +8,11 @@
 {
   "state": {
     "active": [
-      ["@gpu_freq_min", "0.4GHz"]
+      ["@gpu_freq_min", "0.4GHz"],
       ["/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq", "951000"]
     ],
     "inactive": [
-      ["@gpu_freq_min", "0.2GHz"]
+      ["@gpu_freq_min", "0.2GHz"],
       ["/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq", "255000"]
     ]
   }

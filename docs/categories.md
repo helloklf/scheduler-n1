@@ -1,14 +1,14 @@
 ## 类目
 
 ## 一级分类
-- SCENE将应用分App、游戏、性能测试三个大类
-- 是否归类为游戏通过是否包含游戏引擎、是否横屏启动、是否集成游戏服务判定
-- 一个应用是否属于游戏，将决定它是否可以开启FAS，是否使用游戏专用策略
-- 而性能测试类根据内置包名识别判定。但Scene拒绝跑分优化，不提供单独参数配置
+- Scene将应用分为 `App` 和 `游戏` 两个大类
+- 通过是否包含游戏引擎、是否横屏启动、是否集成游戏服务进行区分
+- 是否归类为游戏决定是否可以开启FAS，是否使用游戏专用策略
+- Scene拒绝跑分优化，不提供跑分应用专属优化
 
 
 ### 二级分类
-- SCENE还会根据自带的`categories.json`配置区分应用子类
+- Scene还会根据自带的`categories.json`配置区分应用子类
 - 该文件也可以添加到性能调节配置中，下载配置时将覆盖Scene携带的版本
 - Scene携带的`categories.json` 文件大致如下
 
@@ -19,6 +19,7 @@
     "packages": [
       "com.ss.android.ugc.aweme",
       "com.ss.android.ugc.aweme.lite",
+      "com.ss.android.ugc.aweme.mobile",
       "com.ss.android.ugc.trill",
       "com.ss.android.ugc.live",
       "com.baidu.haokan",
@@ -49,7 +50,6 @@
 
       "cn.cntvhd",
       "com.gitvdemo.video",
-      "com.hunantv.imgo.activity",
       "com.ktcp.video",
       "tv.danmaku.bilibilihd",
       "com.qiyi.video.pad"
@@ -62,7 +62,9 @@
       "com.tencent.mobileqq",
       "com.tencent.mm",
       "com.tencent.tim",
-      "org.telegram.messenger"
+      "org.telegram.messenger",
+      "com.whatsapp",
+      "com.facebook.orca"
     ],
     "category": "IM"
   },
@@ -139,7 +141,8 @@
       "ch.deletescape.lawnchair.plah",
       "com.android.launcher",
       "com.bbk.launcher2",
-      "com.zte.mifavor.launcher"
+      "com.zte.mifavor.launcher",
+      "com.motorola.launcher3"
     ],
     "activities": [
       "com.tencent.mm.plugin.appbrand.ui.AppBrandLauncherUI",
@@ -221,7 +224,8 @@
       "com.android.updater",
       "com.termux",
       "com.termux.x11",
-      "vegabobo.dsusideloader"
+      "vegabobo.dsusideloader",
+      "me.yowal.updatehelper"
     ],
     "category": "WhiteList"
   },
@@ -256,7 +260,8 @@
       "com.andromeda.androbench2",
       "com.antutu.ABenchMark",
       "ioncannon.com.andspecmod",
-      "ioncannon.com.anspec17"
+      "ioncannon.com.anspec17",
+      "com.primatelabs.parkdale"
     ],
     "category": "CPUBenchmark"
   },
@@ -266,7 +271,7 @@
       "com.futuremark.dmandroid.application",
       "com.glbenchmark.glbenchmark27",
       "com.antutu.benchmark.full",
-      " com.tellusim.GravityMark",
+      "com.tellusim.GravityMark",
 
       "com.miui.weather2",
       "com.miui.personalassistant",

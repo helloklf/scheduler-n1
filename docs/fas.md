@@ -59,7 +59,8 @@
   | fast | fps |
   | pedestal | boost |
 
-> freq 参数格式为 [BigMaxFreq, MiddleMaxFreq, MiddleOffset]，FAS默认采取大核中核同频策略，但有些时候大核中核所需的性能并不相同，同频策略会造成一些浪费。而MiddleOffset的作用就是，设定中核应该比大核的频率低(或高)多少个个级别
+> freq 参数格式为 [BigMaxFreq, MiddleMaxFreq, MiddleOffset]，FAS默认采取大核中核同频策略，但有些时候大核中核所需的性能并不相同，同频策略会造成一些浪费。而MiddleOffset的作用就是，设定中核应该比大核的频率低(或高)多少个级别<br>
+> 但目前这个功能已经被自动autoOffset取代
 
 - mode 可选值
 
@@ -78,12 +79,12 @@
   | big_min_freq | 大核频率下限 | int |
   | middle_min_freq | 中核频率下限 | int |
   | middle_optimum_freq | 中核最佳频率 | int |
-  | lower_freq | 低频接线 | int |
+  | lower_freq | 低频界限 | int |
 
 
 > **big_min_freq**, **middle_min_freq**: 大核、中核频率下限。适当提高频率下限有助于减少频率和帧率波动，用极少的功耗换更平稳的帧率
 
-> **lower_freq**: 处理器频率不高于此值时，[slow_down_rate] 生效，如果未指定该值则由SCENE自动计算。
+> **lower_freq**: 处理器频率不高于此值时，[slow_down_rate] 生效，如果未指定该值则由Scene自动计算。
 
-> **middle_optimum_freq**: FAS默认会使中核大核保持频率相近，尽管有MiddleOffset可以使中核比大核频率低一些，但这又会使得大核频率较低时中核频率更低导致卡顿。 middle_optimum_freq 则是以另一种形式解决中核大核同频。在中核频率低于middle_optimum_freq时，中核跟随大核一起升频，中核频率达到middle_optimum_freq之后不再继续跟随大核升频。直到大核频率到达上限，或者与中核频率相差超过5级，中核才允许继续升频
+> **middle_optimum_freq**: FAS默认会使中核大核保持频率相近，尽管有MiddleOffset可以使中核比大核频率低一些，但这又会使得大核频率较低时中核频率更低导致卡顿。 middle_optimum_freq 则是以另一种形式避免中核大核一直同频。在中核频率低于middle_optimum_freq时，中核跟随大核一起升频，中核频率达到middle_optimum_freq之后不再继续跟随大核升频。直到大核频率到达上限，或者与中核频率相差超过5级，中核才允许继续升频
 

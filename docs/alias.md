@@ -1,9 +1,9 @@
 ## 别名
-- 别名是指对面某个路径的简写，使用别名可以有效减少配置篇幅，提高配置可读性
+- 别名是指对某个路径的简写，使用别名可以有效减少配置篇幅，提高配置可读性
 
 
 ### 内置别名
-- SCENE已经内置了一些别名，具体如下：
+- Scene已经内置了一些别名，具体如下：
 
 ```json
 {
@@ -34,7 +34,7 @@
 	"sched_boost": "/proc/sys/kernel/sched_boost",
 
 	"stune_top_boost": "/dev/stune/top-app/schedtune.boost",
-	"stune_top_perf":  "/dev/stune/top-app/schedtune.prefer_idle",
+	"stune_top_perf":  "/dev/stune/top-app/schedtune.prefer_idle"
 }
 ```
 
