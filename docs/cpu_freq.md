@@ -1,8 +1,8 @@
 ## 频率控制
 - Scene N1设计了全新的CPU频率控制器，使得它可以无限制的拓展各种“限频”或“提频”策略
-- 修改CPU频率不再是“后设置”覆盖“先设置”的的单一路径，而是多种“条件”或者说“理由”的聚合
+- 修改CPU频率不再是“后设置”覆盖“先设置”的单一路径，而是多种“条件”或者说“理由”的聚合
   ```sh
-  FreqMgrUniversalLimit // 通用的(配置文件中中设定的常态频率)
+  FreqMgrUniversalLimit // 通用的(配置文件中设定的常态频率)
   FreqMgrSensorLimit    // 由Sensor设定触发的限制(由Sensor配置的策略调用)
   [x] FreqMgrCpuLimiter     // 辅助调速器 - 基于负载的调速器轮询赋值(由辅助调速器调用)
   FreqMgrFASLimit       // FAS - 基于帧的调速器轮询赋值(由SceneFAS调用)
@@ -15,16 +15,16 @@
   ```
 
 - 这里的“理由”分为“Boost”和“Limit”两种
-  > Limit的行为是设置"BoostMin|LimitMax"，Boost的行为是设置"BootMin|BoostMax"
+  > Limit的行为是设置"BoostMin|LimitMax"，Boost的行为是设置"BoostMin|BoostMax"
 
 - BoostMin的行为是提高频率下限
   > 例如：多个条件分别设置了 300 400 500，最终生效的是其中的最大值 500
 
 - LimitMax的行为是限制频率上限
-  > 例如：多个条件分别设置了 800 900 100，最终生效的事其中的最小值 800
+  > 例如：多个条件分别设置了 800 900 1000，最终生效的是其中的最小值 800
 
 - BoostMax的行为是提高频率上限
-  > 例如：多个条件分别设置了 800 900 100，最终生效的事其中的最大值 1000
+  > 例如：多个条件分别设置了 800 900 1000，最终生效的是其中的最大值 1000
 
 - BoostMax的意思是突破LimitMax设定的限制，
   > 例如：省电模式本该限制1.6GHz，但此时正在冷启动应用，就可以以`FreqMgrLauncherBoost`理由，短时间突破限制提升到更高频率
@@ -73,7 +73,7 @@
         "packages": ["com.miHoYo.Yuanshen"],
         "sensors": [
           {
-            "sensor": "capacity", // Scene阈值的传感器名称，代表电池电量%
+            "sensor": "capacity", // Scene预置的传感器名称，代表电池电量%
             "interval": 5000, // 轮询间隔5s
             "rules": [
               {

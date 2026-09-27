@@ -8,7 +8,7 @@
   // 示例 正常的写入一个值
   ["/proc/sys/kernel/sched_boost", "1"]
   ```
-- 如果需要想要在写入数值后，将文件设为只读(0444)，可以在value前加#
+- 如果想要在写入数值后，将文件设为只读(0444)，可以在value前加#
   > 这么做主要是防止参数被第三方应用或系统再覆盖，并不影响Scene下次写入
 
   ```js
@@ -37,7 +37,7 @@
   ```
 
 
-### CPU最小频率 **`@cpu_freq_min`**
+#### CPU最小频率 **`@cpu_freq_min`**
 - 参数格式为 **@cpu_freq_min [clusterExpr] [freqExpr]**
 - 例如，我准备在省电模式下将CPU小核限制为最低300MHz
   ```json
@@ -68,15 +68,15 @@
   ```
 
 #### CPU各Cluster的最小频率 **`@cpu_freqs_min`**
-- 参数格式为 **@cpu_freq_max [freqExpr] [freqExpr] ...**
+- 参数格式为 **@cpu_freqs_min [freqExpr] [freqExpr] ...**
   ```json
   ["@cpu_freqs_min", "300000", "300000", "300000"]
   ```
 
 #### CPU各Cluster的最大频率 **`@cpu_freqs_max`**
-- 参数格式为 **@cpu_freq_max [freqExpr] [freqExpr] ...**
+- 参数格式为 **@cpu_freqs_max [freqExpr] [freqExpr] ...**
   ```json
-  ["@cpu_freqs_min", "2000000", "2400000", "2800000"]
+  ["@cpu_freqs_max", "2000000", "2400000", "2800000"]
   ```
 
 > 以上cpu频率控制函数没有优劣之分，根据实际需求和喜好选择使用即可
@@ -85,7 +85,7 @@
 
 #### GPU频率范围 **`@gpu_freq`**
 - 参数格式为 **@gpu_freq [freqExpr] [freqExpr]**
-- 例如，我准备在省电模式下将GPU最大频率限制500MHz
+- 例如，我准备在省电模式下将GPU最大频率限制为500MHz
   ```json
   {
     "schemes": {
@@ -116,7 +116,7 @@
 
 #### GPU最大频率 **`@gpu_freq_max`**
 - 参数格式为 **@gpu_freq_max [freqExpr]**
-- 例如，我准备在省电模式下将GPU最膏限制为最高300MHz
+- 例如，我准备在省电模式下将GPU频率限制为最高400MHz
   ```json
   {
     "schemes": {

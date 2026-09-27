@@ -61,7 +61,7 @@
 | `heavy_thread` | 第二重负载线程的名称 | string |
 | `heavy_cores` | 第二重负载线程可以使用的cpu核心 | string |
 | `main_thread` | 指定运行主线程的cpu核心(通常，游戏的主线程都不是重负载线程) | string |
-| `other` | 未被comm、heaviest_thread、heavy_thead命中的线程可使用的CPU核心 | string |
+| `other` | 未被comm、heaviest_thread、heavy_thread命中的线程可使用的CPU核心 | string |
 | `trashy` | 指定垃圾线程，本质上是通过cpuctl(cpu.uclamp.max)对线程进行限制，因此需要LinuxKernel 5+ | string[] |
 | `ni` | 需要通过修改nice值提高优先级的线程 | string[] |
 

@@ -66,7 +66,7 @@
   "schemes": {
     "powersave": {
       "call": [
-        ["$max_cpus_cpu3", "4"]
+        ["$max_cpus_cpu3", "4"],
         ["$min_cpus_cpu3", "1"]
       ]
     }

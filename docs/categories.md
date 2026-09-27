@@ -36,7 +36,6 @@
       "tv.danmaku.bili", "com.bilibili.app.in",
       "com.google.android.youtube",
       "com.tencent.qqlive",
-      "com.ss.android.article.video",
       "com.qiyi.video",
       "com.qiyi.video.lite",
       "com.qiyi.video.sdkplayer",
@@ -45,7 +44,6 @@
       "air.tv.douyu.android",
       "com.douyu.rush",
       "com.youku.phone",
-      "org.telegram.messenger",
       "com.hunantv.imgo.activity",
 
       "cn.cntvhd",
@@ -192,7 +190,6 @@
       "com.oplus.camera",
       "com.samsung.agc.gcam84",
       "com.mediatek.expert.mtkcamhelper",
-      "org.codeaurora.snapcam",
       "com.meizu.media.camera"
     ],
     "category": "Camera"

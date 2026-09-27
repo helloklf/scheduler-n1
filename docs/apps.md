@@ -13,7 +13,7 @@
   "apps": [
     {
       "friendly": "即时通讯",
-      "packagess": ["com.tencent.mm", "com.tencent.mobileqq"],
+      "packages": ["com.tencent.mm", "com.tencent.mobileqq"],
       "call": []
     },
     {
@@ -111,7 +111,7 @@
 
 #### 类目
 - 类目就像是一些PackageName的集合
-- 也可以在`packages`中添加来类目，来直接匹配一系列应用
+- 也可以在`packages`中添加类目，来直接匹配一系列应用
 - 例如，我打算为聊天工具、小说阅读器指定一组配置，就像这样：
 
 ```json
@@ -138,7 +138,7 @@
 
 
 #### 配置拆分
-- 为了让`profile.json`不变的巨大
+- 为了让`profile.json`不会变得巨大
 - Scene允许将对某个场景的配置拆分成独立文件
 - 使用`"import": "文件名.json"`进行关联
 - 例如

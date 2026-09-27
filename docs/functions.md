@@ -61,7 +61,7 @@
 - @cpu_freqs_max
   > 设置cpu各个cluster的频率上限
   ```json
-  ["@cpu_freqs_min", "2000000", "2420000", "2820000"]
+  ["@cpu_freqs_max", "2000000", "2420000", "2820000"]
   ```
 
 - @cpu_freq
@@ -78,12 +78,12 @@
 
 - @gpu_freq_min
   ```json
-  ["@gpu_freq", "120000"]
+  ["@gpu_freq_min", "120000"]
   ```
 
 - @gpu_freq_max
   ```json
-  ["@gpu_freq", "750000"]
+  ["@gpu_freq_max", "750000"]
   ```
 
 - @cpuset
@@ -151,13 +151,13 @@
 - @hispeed_freq
   > 分别设置 [cluster0], [cluster1]... 的hispeed_freq(需要调速器自身支持)
   ```json
-  ["@target_loads", "1200000", "1200000", "1200000"]
+  ["@hispeed_freq", "1200000", "1200000", "1200000"]
   ```
 
 - @hispeed_load
   > 分别设置 [cluster0], [cluster1]... 的hispeed_load(需要调速器自身支持)
   ```json
-  ["@target_loads", "95", "95", "95"]
+  ["@hispeed_load", "95", "95", "95"]
   ```
 
 - @uclamp
@@ -169,8 +169,8 @@
 - @cpu_online
   > 设置各个核心的online状态
   ```json
-  // 前面不用变状态的核心可以留空，如果核心在后面也也可以省略
-  ["@uclamp", "1", "1", "0", "0", "1", "1"]
+  // 前面不用变状态的核心可以留空，如果核心在后面也可以省略
+  ["@cpu_online", "1", "1", "0", "0", "1", "1"]
   ```
 
 - @mtk_renew
@@ -183,11 +183,11 @@
   > 使用若干组参数设定
   ```json
   // ddr_freq_middle 和 powersave_active 都是自定义参数组，scene里并不存在这样的预设
-  ["@apply", "ddr_freq_middle", "powersave_active"]
+  ["@preset", "ddr_freq_middle", "powersave_active"]
   ```
 
 - @values
-  > 使用一组参数设定，并将指定的值于参数组路径结合
+  > 使用一组参数设定，并将指定的值与参数组路径结合
   ```json
   ["@values", "set_xx_freq", "100000", "500000"]
   ```
