@@ -171,3 +171,143 @@
 - 与 `辅助调速器` 联动的 `性能需求提示`
 > Scene会跟踪应用主线程和负载最重的RenderThread <br>
 > 如果线程持续运行，超出绘制1帧所需的时间，则提示辅助调速器提升性能
+
+
+#### sched_ext
+- sched_ext 是 Scene N1尚在试验阶段的新功能，当前仅测试适配Linux Kernel 6.12
+- 且由于调速器部分尚未完成，需要搭配FAS Lite，或所有核心调速器使用performance的Scene FAS使用
+- 注意：sched_ext 优先级低于cgroup/affinity，确保系统自身的线程放置已经完全关闭，并卸载其它线程管理模块
+- 以下是配置案例
+
+  ```json
+  {
+    "friendly": "王者荣耀/LOLM",
+    "packages": ["com.tencent.tmgp.sgame", "com.tencent.tmgp.sgamece", "com.tencent.lolm"],
+    "cpuset": {
+      "heaviest_thread": "UnityMain",
+      "heaviest_cores": "7",
+      "heavy_thread": "UnityGfx;Thread-",
+      "heavy_cores": "1-5",
+      "comm": {
+        "1-7": ["IL2CPP", "btm_"]
+      },
+      "other": "1-5"
+    },
+    "scx": {
+      "heaviest": {
+        "comm": "UnityMain",
+        "cpu": 7,
+        "cpus": "1-7",
+        "preempt": true,
+        "priority": 1
+      },
+      "heavy": {
+        "comm": "UnityGfx;Thread-",
+        "cpu": 5,
+        "cpus": "1-7",
+        "preempt": true,
+        "priority": 2
+      },
+      "other": {
+        "cpus": "0-4"
+      }
+    }
+  }
+  ```
+
+- heaviest 和 heavy 可配置的参数
+  | 参数 | 必须配置 | 说明 |
+  | - | - |
+  | comm | Y | 匹配的线程名称，可通过;分隔配置多个，并自动挑选匹配的线程中负载最高的1个 |
+  | cpu | Y | 目标线程主要使用的cpu核心 |
+  | cpus | N | 目标线程允许使用的cpu核心 |
+  | preempt | N | 是否启用抢占，允许抢占则可以踢开更低优先级的线程 |
+  | priority | Y | 优先级，优先级高的线程可以踢优先级低的线程 |
+
+- scx 配置和 cpuset配置不会同时生效，同时配置只是提供回退选项。支持sched_ext的内核用scx，不支持则继续用cpuset配置
+
+
+#### threads_auto.json 自动策略
+- 在未提供预设的线程放置策略预设的游戏中，Scene会自动分析负载分布
+- 将负载识别为以下类型
+  定义  | 必须配置 | 负载类型说明 |
+  | :- | :-: | :- |
+  | load1n | N | 具有1个重负载线程 |
+  | load11n | N | 具有1个重负载线程，和1个中负载线程 |
+  | load12n | N | 具有1个重负载线程，和2个中负载线程 |
+  | load2n | N | 具有2个重负载线程 |
+  | load3n | N | 具有3个或更多的负载线程 |
+- Scene可能会随版本更新调整分配策略，通常不需要通过配置干预
+- 但有时候会有类似“6+2的处理器，应该同时用2个大核还是只用1个大核”这样的争议
+  > 注意：“6+2处理器是否应该同时使用两个大核，需要考虑具体型号和游戏，这里只抛出问题不作指示和建议”
+- 因此你可以创建 `threads_auto.json` 来改变默认策略
+
+- 每个类型均可按top4和other指定可以使用的CPU核心，格式如
+  ```json
+  {
+    "primary": "7",
+    "secondary": "6",
+    "tertiary": "4-5",
+    "quaternary": "4-5",
+    "other": "0-5",
+  }
+  ```
+
+- 对于非游戏应用，线程识别和CPU核心分配策略就简单的多
+- 主要通过线程ID/名称区分为 主线程、渲染线程、其它线程
+  ```json
+  {
+    "main": "7",
+    "render": "4-6",
+    "other": "0-6"
+  }
+  ```
+
+- 下面是个配置示例
+
+  ```json
+  {
+    "game": {
+      "load1n": {
+        "primary": "7",
+        "secondary": "1-6",
+        "tertiary": "1-6",
+        "quaternary": "1-6",
+        "others": "1-6"
+      },
+      "load11n": {
+        "primary": "7",
+        "secondary": "6",
+        "tertiary": "1-5",
+        "quaternary": "1-5",
+        "others": "1-5"
+      },
+      "load12n": {
+        "primary": "7",
+        "secondary": "1-6",
+        "tertiary": "1-6",
+        "quaternary": "1-5",
+        "others": "1-5"
+      },
+      "load2n": {
+        "primary": "7",
+        "secondary": "6",
+        "tertiary": "1-5",
+        "quaternary": "1-5",
+        "others": "1-5"
+      },
+      "load3n": {
+        "primary": "1-7",
+        "secondary": "1-7",
+        "tertiary": "1-7",
+        "quaternary": "1-7",
+        "others": "0-5"
+      }
+    },
+    "app": {
+      "main": "1-7",
+      "render": "1-7",
+      "other": "1-7"
+    }
+  }
+  ```

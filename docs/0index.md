@@ -2,7 +2,7 @@
 - 本文档根据Scene N1框架特性编写
 
 > 如果你已经熟悉Scene9的配置，只想了解N1做出的变更，请关注这些
-- [核心分配](./cpuset.md) 、[特性](./features.md)、[频率控制](./cpu_freq.md)、[传感器](./sensor.md)
+- [核心分配](./cpuset.md) 、[特性](./features.md)、[频率控制](./cpu_freq.md)、[传感器](./sensor.md)、[命令行](./cmdline.md)
 - 命名 在SceneN1中，所有配置文件文件名统一改为小写字母
 
 ### 组成
@@ -40,6 +40,8 @@
 #### [所有函数](./functions.md)
 ### 原理相关
 #### [CPU限制条件叠加](./cpu_freq.md)
+### 其它功能
+#### [命令行](./cmdline.md)
 
 <br />
 
