@@ -198,15 +198,13 @@
         "comm": "UnityMain",
         "cpu": 7,
         "cpus": "1-7",
-        "preempt": true,
-        "priority": 1
+        "preempt": true
       },
       "heavy": {
         "comm": "UnityGfx;Thread-",
         "cpu": 5,
         "cpus": "1-7",
-        "preempt": true,
-        "priority": 2
+        "preempt": true
       },
       "other": {
         "cpus": "0-4"
@@ -219,10 +217,9 @@
   | 参数 | 必须配置 | 说明 |
   | - | - |
   | comm | Y | 匹配的线程名称，可通过;分隔配置多个，并自动挑选匹配的线程中负载最高的1个 |
-  | cpu | Y | 目标线程主要使用的cpu核心 |
-  | cpus | N | 目标线程允许使用的cpu核心 |
-  | preempt | N | 是否启用抢占，允许抢占则可以踢开更低优先级的线程 |
-  | priority | Y | 优先级，优先级高的线程可以踢优先级低的线程 |
+  | cpu | Y | 目标线程*优先使用的cpu核心* |
+  | cpus | N | 目标线程*优先使用的cpu核心* |
+  | preempt | N | 是否启用抢占，启用则自动踢开*优先使用的cpu核心*上的其它线程 |
 
 - scx 配置和 cpuset配置不会同时生效，同时配置只是提供回退选项。支持sched_ext的内核用scx，不支持则继续用cpuset配置
 
