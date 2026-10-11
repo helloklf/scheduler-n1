@@ -201,7 +201,6 @@
       "other": "1-5"
     },
     "scx": {
-      "clean": false,
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
