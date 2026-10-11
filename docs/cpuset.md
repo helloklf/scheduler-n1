@@ -104,7 +104,7 @@
 
 
 ##### ni
-- `ni`会为匹配到的线程设置nice值为`-10`，提高争夺CPU资源的能力
+- `ni`会为匹配到的线程设置nice值为 **-20**，提高争夺CPU资源的能力
 - `ni`策略默认包含 heaviest_thread 和 heavy_thread 命中的线程，无需重复声明
 - 你只需要补充除二者以外的重要线程，如果没有就不配置，例如：
 
@@ -169,14 +169,21 @@
 | `children` | 是否检测子进程 | string |
 
 - 与 `辅助调速器` 联动的 `性能需求提示`
-> Scene会跟踪应用主线程和负载最重的RenderThread <br>
-> 如果线程持续运行，超出绘制1帧所需的时间，则提示辅助调速器提升性能
+  > Scene会跟踪应用主线程和负载最重的RenderThread <br>
+  > 如果线程持续运行，超出绘制1帧所需的时间，则提示辅助调速器提升性能
 
 
 #### sched_ext
 - sched_ext 是 Scene N1尚在试验阶段的新功能，当前仅测试适配Linux Kernel 6.12
 - 且由于调速器部分尚未完成，需要搭配FAS Lite，或所有核心调速器使用performance的Scene FAS使用
-- 注意：sched_ext 优先级低于cgroup/affinity，确保系统自身的线程放置已经完全关闭，并卸载其它线程管理模块
+- Scene目前还未将sched_ext作为核心分配的主要实现方式，因为激活该功能，除了需要满足以下条件
+  1. 在Scene核心分配设置里打开“启用sched_ext”
+  2. 必须是游戏
+  3. 满足以下条件之一
+    - 3.1 已在threads.json中为该游戏添加配置，且配置了 scx 策略
+    - 3.2 未在threads.json中为该游戏添加配置，且threads_auto.json中已配置 scx 策略
+
+- 注意：sched_ext 优先级低于cgroup/affinity，确保系统本身的线程放置已经完全关闭，并卸载其它线程管理模块
 - 以下是配置案例
 
   ```json
@@ -194,20 +201,20 @@
       "other": "1-5"
     },
     "scx": {
+      "clean": false,
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
-        "cpus": "1-7",
-        "preempt": true
+        "cpus": "1-7"
       },
       "heavy": {
         "comm": "UnityGfx;Thread-",
         "cpu": 5,
-        "cpus": "1-7",
-        "preempt": true
+        "cpus": "1-7"
       },
       "other": {
-        "cpus": "0-4"
+        "cpus": "0-4",
+        "desc": false
       }
     }
   }
@@ -215,13 +222,19 @@
 
 - heaviest 和 heavy 可配置的参数
   | 参数 | 必须配置 | 说明 |
-  | - | - |
+  | - | - | - |
   | comm | Y | 匹配的线程名称，可通过;分隔配置多个，并自动挑选匹配的线程中负载最高的1个 |
   | cpu | Y | 目标线程主要使用的cpu核心 |
-  | cpus | N | 目标线程允许使用的cpu核心 |
-  | preempt | N | 是否启用抢占，启用则自动踢开主要使用的cpu核心上的其它线程 |
+  | cpus | Y | 目标线程允许使用的cpu核心 |
+
+- other 可配置的参数
+  | 参数 | 必须配置 | 说明 |
+  | - | - | - |
+  | cpus | Y | 目标线程允许使用的cpu核心 |
+  | desc | Y | 控制是否优先使用序号更大的核心 |
 
 - scx 配置和 cpuset配置不会同时生效，同时配置只是提供回退选项。支持sched_ext的内核用scx，不支持则继续用cpuset配置
+
 
 
 #### threads_auto.json 自动策略
@@ -235,6 +248,7 @@
   | load2n | N | 具有2个重负载线程 |
   | load3n | N | 具有3个或更多的负载线程 |
 - Scene可能会随版本更新调整分配策略，通常不需要通过配置干预
+
 - 但有时候会有类似“6+2的处理器，应该同时用2个大核还是只用1个大核”这样的争议
   > 注意：“6+2处理器是否应该同时使用两个大核，需要考虑具体型号和游戏，这里只抛出问题不作指示和建议”
 - 因此你可以创建 `threads_auto.json` 来改变默认策略
@@ -257,6 +271,48 @@
     "main": "7",
     "render": "4-6",
     "other": "0-6"
+  }
+  ```
+
+- 完整配置格式（下面是翻译成TypeScript的配置格式约定）
+  ```typescript
+  type GameThreadPolicy = {
+    primary: string,
+    secondary: string,
+    tertiary: string,
+    quaternary: string,
+    others: string
+  }
+
+  type ThreadAutoPolicy = {
+    game?: {
+      load1n?: GameThreadPolicy | null,
+      load11n?: GameThreadPolicy | null,
+      load12n?: GameThreadPolicy | null,
+      load2n?: GameThreadPolicy | null,
+      load3n?: GameThreadPolicy | null
+    },
+    app?: {
+      main: string,
+      render: string,
+      other: string
+    },
+    scx?: {
+      heaviest: {
+        // 优先使用的核心
+        cpu: number,
+        // 允许使用的核心
+        cpus: string
+      },
+      heavy: {
+        cpu: number,
+        cpus: string
+      },
+      other: {
+        cpus: string,
+        desc: boolean
+      }
+    }
   }
   ```
 
@@ -305,6 +361,20 @@
       "main": "1-7",
       "render": "1-7",
       "other": "1-7"
+    },
+    "scx": {
+      "heaviest": {
+        "cpu": 7,
+        "cpus": "1-7"
+      },
+      "heavy": {
+        "cpu": 6,
+        "cpus": "4-6"
+      },
+      "other": {
+        "cpus": "0-5",
+        "desc": true
+      }
     }
   }
   ```
