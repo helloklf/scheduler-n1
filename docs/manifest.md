@@ -11,6 +11,7 @@
 | version | 配置名称 | String |
 | versionCode | 配置号 | Int64 |
 | author | 作者 | String |
+| target | 目标Scene版本 | String |
 | projectUrl | 项目地址 | String |
 | features | 特性声明 | Object |
 
@@ -18,15 +19,19 @@
 
 ```json
 {
-  "version": "FAS Beta",
-  "versionCode": 20230528001,
+  "version": "HP",
+  "versionCode": 2026101201,
   "author": "SceneN1",
+  "target": "SCENE N1",
   "projectUrl": "http://vtools.omarea.com/",
   "features": {
     "pedestal": false
   }
 }
 ```
+
+- 二改Scene配置时，target或author其中一项的值必须设为 "SCENE N1"，否则会被认为是不适用于当前版本的无效配置
+
 
 #### 特性
 - 特性的声明包含以下参数
