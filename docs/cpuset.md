@@ -176,7 +176,7 @@
 #### sched_ext
 - sched_ext 是 Scene N1尚在试验阶段的新功能，当前仅测试适配Linux Kernel 6.12
 - 且由于调速器部分尚未完成，需要搭配FAS Lite，或所有核心调速器使用performance的Scene FAS使用
-- Scene目前还未将sched_ext作为核心分配的主要实现方式，因为激活该功能，除了需要满足以下条件
+- Scene目前还未将sched_ext作为核心分配的主要实现方式，激活该功能，需满足以下条件
   1. 在Scene核心分配设置里打开“启用sched_ext”
   2. 必须是游戏
   3. 满足以下条件之一
