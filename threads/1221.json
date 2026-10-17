@@ -85,7 +85,7 @@
     "friendly": "和平精英",
     "packages": ["com.tencent.tmgp.pubgmhd", "com.tencent.tmgp.pubgmhdce"],
     "cpuset": {
-      "ni": ["RHIThread", "RenderThread"],
+      "ni": ["RenderThread"],
       "heaviest_thread": "Thread-",
       "heaviest_cores": "4",
       "heavy_thread": "RHIThread",

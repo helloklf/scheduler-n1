@@ -97,7 +97,7 @@
     "friendly": "和平精英",
     "packages": ["com.tencent.tmgp.pubgmhd", "com.tencent.tmgp.pubgmhdce"],
     "cpuset": {
-      "ni": ["RHIThread", "RenderThread"],
+      "ni": ["RenderThread"],
       "heaviest_thread": "Thread-",
       "heaviest_cores": "7",
       "heavy_thread": "RHIThread",
@@ -140,6 +140,21 @@
         ]
       },
       "other": "3-6"
+    }
+  },
+  {
+    "friendly": "三角洲行动",
+    "packages": ["com.tencent.tmgp.dfm"],
+    "cpuset": {
+      "ni": ["MainThread", "TaskGraph"],
+      "heaviest_thread": "RenderThread",
+      "heaviest_cores": "7",
+      "heavy_thread": "GameThread",
+      "heavy_cores": "6",
+      "comm": {
+        "3-5": ["TaskGraph", "MainThread"]
+      },
+      "other": "1-5"
     }
   },
   {

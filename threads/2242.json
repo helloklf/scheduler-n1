@@ -70,7 +70,7 @@
       "heavy_thread": "UnityGfx;Thread-",
       "heavy_cores": "4-7",
       "comm": {
-        "4-7": ["IL2CPP", "btm_", "UnityGfxRender", "CoreThread", "Apollo-", "NativeThread", "UnityChoreo", "Worker Thread", "Job.worker"]
+        "4-7": ["IL2CPP", "btm_", "GfxRender", "CoreThread", "Apollo-", "NativeThread", "UnityChoreo", "Worker Thread", "Job.worker"]
       },
       "other": "4-7"
     }
@@ -79,7 +79,7 @@
     "friendly": "和平精英",
     "packages": ["com.tencent.tmgp.pubgmhd", "com.tencent.tmgp.pubgmhdce"],
     "cpuset": {
-      "ni": ["RHIThread", "RenderThread"],
+      "ni": ["RenderThread"],
       "heaviest_thread": "Thread-",
       "heaviest_cores": "9",
       "heavy_thread": "RHIThread",
@@ -117,6 +117,21 @@
       "comm": {
         "4-7": ["IL2CPP", "UnityGfxRender"],
         "2-7": ["UnityChoreograp", "Job.Worker", "NativeThread", "mhp.speedmobile", "AudioTrack", "GThreadManager", "binder."]
+      },
+      "other": "2-7"
+    }
+  },
+  {
+    "friendly": "三角洲行动",
+    "packages": ["com.tencent.tmgp.dfm"],
+    "cpuset": {
+      "ni": ["MainThread", "TaskGraph"],
+      "heaviest_thread": "RenderThread",
+      "heaviest_cores": "9",
+      "heavy_thread": "GameThread",
+      "heavy_cores": "8",
+      "comm": {
+        "4-7": ["TaskGraph", "MainThread"]
       },
       "other": "2-7"
     }
