@@ -161,12 +161,20 @@ if [[ $(getprop ro.product.model | grep -i Note) == '' ]]; then
   echo 60 60 > /proc/sys/walt/sched_downmigrate
 fi
 
+# OneUI
+if [[ "$(getprop ro.build.version.oneui)" != '' ]]; then
+  echo 0 > /proc/sys/walt/panic_on_walt_bug
+  echo 0 > /proc/sys/kernel/panic_on_oops
+fi
+
+
 for dir in /sys/devices/system/cpu/cpufreq/policy*;do
   lock_value 0 $dir/walt/adaptive_high_freq
   lock_value 0 $dir/walt/adaptive_low_freq
   echo 1024 > $dir/walt/target_load_thresh
   echo 4 > $dir/walt/target_load_shift
 done
+
 
 
 cpus=3-6

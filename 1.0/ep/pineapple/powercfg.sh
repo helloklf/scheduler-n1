@@ -167,6 +167,12 @@ if [[ -d /proc/mz_info ]]; then
 fi
 
 
+# OneUI
+if [[ "$(getprop ro.build.version.oneui)" != '' ]]; then
+  echo 0 > /proc/sys/walt/panic_on_walt_bug
+  echo 0 > /proc/sys/kernel/panic_on_oops
+fi
+
 echo 99 > /proc/sys/walt/walt_rtg_cfs_boost_prio # default 119
 echo 1 > /proc/sys/walt/sched_pipeline_util_thres # default 400
 echo 1 > /proc/sys/walt/walt_low_latency_task_threshold # default 325

@@ -1,7 +1,8 @@
 {
   "version": "LP",
-  "versionCode": 20260913,
-  "author": "SCENE9",
+  "versionCode": 20261007,
+  "author": "SCENE N1",
+  "target": "SCENE N1",
   "projectUrl": "http://vtools.omarea.com/",
   "features": {
     "strict": true,
