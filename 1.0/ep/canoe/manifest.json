@@ -1,14 +1,15 @@
 {
   "version": "EP",
-  "versionCode": 20261007,
+  "versionCode": 20261106,
   "author": "SCENE N1",
   "target": "SCENE N1",
   "projectUrl": "http://vtools.omarea.com/",
   "features": {
     "strict": true,
     "pedestal": true,
-    "reboot": false,
-    "fas": false
+    "reboot": true,
+    "fas": false,
+    "scx": false
   },
   "files": [
     "_apps.json",

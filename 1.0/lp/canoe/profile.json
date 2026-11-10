@@ -10,7 +10,8 @@
     "perfmgr_enable": "/sys/module/perfmgr/parameters/perfmgr_enable",
     "sched_boost": "/proc/sys/walt/sched_boost",
     "glk_disable": "/sys/module/migt/parameters/glk_disable",
-    "input_boost": "/proc/sys/walt/input_boost/sched_boost_on_input"
+    "input_boost": "/proc/sys/walt/input_boost/sched_boost_on_input",
+    "ddr_boost": "/sys/devices/system/cpu/bus_dcvs/DDR/boost_freq"
   },
   "features": {
     "limiter": {
@@ -38,14 +39,14 @@
         "inactive": {
           "core_ctl": [0, 1],
           "cpus": [
-            { "max": 1785600, "min": 556800,  "margins": "120 998400:90", "excludes": [0] },
+            { "max": 1785600, "min": 691200,  "margins": "120 998400:90", "excludes": [0] },
             { "max": 1958400, "min": 768000, "margins": "120 1632000:90" }
           ]
         },
         "idle": {
           "core_ctl": [0, 1],
           "cpus": [
-            { "max": 1555200, "min": 556800,  "margins": "100 998400:80", "excludes": [0] },
+            { "max": 1555200, "min": 691200,  "margins": "100 998400:80", "excludes": [0] },
             { "max": 1689600, "min": 768000, "margins": "100 1632000:80" }
           ]
         }
@@ -104,10 +105,12 @@
       ["/proc/game_opt/disable_cpufreq_limit", "0"]
     ],
     "common_active": [
+      ["$ddr_boost", "2092000"]
     ],
     "common_inactive": [
       ["@cpu_freqs_min", "0", "0"],
-      ["$sched_boost", "0"]
+      ["$sched_boost", "0"],
+      ["$ddr_boost", "547000"]
     ],
     "common_app": [
       ["$perfmgr_enable", "0"],

@@ -143,6 +143,28 @@ if [[ -d  /proc/game_opt ]]; then
   echo -1 > /proc/oplus_hmbird/manager_pid
 fi
 
+# Vivo
+if [[ -e /sys/rsc ]]; then
+  lock_value 0 /sys/rsc/fas/enable
+  lock_value 0 /sys/rsc/fas/fla_enable
+  lock_value 0 /sys/rsc/fas/fla_break_freq_enable
+  lock_value 0 /sys/rsc/fas/deplist_render_enable
+  lock_value 1 /sys/rsc/svp/disable_input_boost
+  lock_value 0 /sys/rsc/enabled
+  lock_value 0 /sys/rsc/futex_enable
+  lock_value 0 /sys/rsc/rsc_dyn_svp_enable
+  lock_value 0 /sys/rsc/qos/qos_enable
+  lock_value 0 /sys/rsc/qos/qos_bw_enable
+  lock_value 0 /sys/rsc/qos/qos_cpu_enable
+  lock_value 0 /sys/rsc/qos/qos_locking_promotion_enable
+  lock_value 0 /sys/rsc/frame_set_priority_enable
+  lock_value 0 /sys/rsc/svp/svp_enable
+  lock_value 0 /sys/module/vivo_rsc/parameters/enable_rsc
+  lock_value 0x80000001 /sys/rsc/rsc_switch
+  setprop persist.vivo.qos.startapp.boost 0
+fi
+
+
 echo 99 > /proc/sys/walt/walt_rtg_cfs_boost_prio # default 119
 echo 1 > /proc/sys/walt/sched_pipeline_util_thres # default 400
 echo 1 > /proc/sys/walt/walt_low_latency_task_threshold # default 325
@@ -152,3 +174,28 @@ echo 1 > /proc/sys/walt/sched_disable_mvp_thres # default 3000
 
 echo '2745600 2745600 2745600 3033600 3033600' > /proc/sys/walt/cluster0/smart_freq/ipc_freq_levels
 echo '4070400 4070400 4262400 4262400 4396800' > /proc/sys/walt/cluster1/smart_freq/ipc_freq_levels
+
+
+# DDR
+if [[ -e /sys/rsc ]]; then
+  B=/sys/devices/system/cpu/bus_dcvs
+  G=/sys/class/kgsl/kgsl-3d0/gmu
+  for d in $B/DDR/soc:qcom,memlat:ddr:*/; do
+    echo 547000 > $d/min_freq
+    echo 5333000 > $d/max_freq
+  done
+  D=$B/DDR/31091000.qcom,bwmon-ddr
+  echo 547000 > $D/min_freq
+  echo 5333000 > $D/max_freq
+  echo 0 > $D/ab_scale
+  LG=$B/LLCC/310b3400.qcom,bwmon-llcc-gold
+  echo 4224000 > $LG/second_vote_limit
+  echo 0 > $LG/second_ab_scale
+  echo 0 > $LG/use_sched_boost
+  LP=$B/LLCC/310b7400.qcom,bwmon-llcc-prime
+  echo 5333000 > $LP/second_vote_limit
+  echo 0 > $LP/second_ab_scale
+  echo 0 > $LP/use_sched_boost
+  echo 4780 > $G/dcvs_tunables/bus_max_freq_mhz
+  echo -1 > $G/dcvs_tunables/bus_max_ab_mbps
+fi
