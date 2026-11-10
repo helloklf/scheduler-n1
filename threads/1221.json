@@ -76,7 +76,7 @@
       "heavy_thread": "UnityGfx;Thread-",
       "heavy_cores": "1-4",
       "comm": {
-        "1-5": ["UnityPreload", "IL2CPP", "btm_"]
+        "1-5": ["UnityPreload", "GfxRender", "IL2CPP", "btm_"]
       },
       "other": "1-4"
     }

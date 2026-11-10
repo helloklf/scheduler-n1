@@ -18,7 +18,7 @@
       },
       "other": "0-6"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "GameThread",
         "cpu": 7,
@@ -57,7 +57,7 @@
       },
       "other": "0-5"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
@@ -87,7 +87,7 @@
       },
       "other": "0-5"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
@@ -114,11 +114,11 @@
       "heavy_cores": "6",
       "comm": {
         "4-7": ["UnityPreload", "IL2CPP", "btm_"],
-        "4-5": ["GfxRender", "CoreThread", "Apollo-", "NativeThread", "UnityChoreo", "Worker Thread", "Job.worker"]
+        "4-5": ["GfxRender", "CoreThread", "GfxRender", "Apollo-", "NativeThread", "UnityChoreo", "Worker Thread", "Job.worker"]
       },
       "other": "0-5"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
@@ -149,7 +149,7 @@
       },
       "other": "0-6"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "Thread-",
         "cpu": 7,
@@ -194,7 +194,7 @@
       },
       "other": "0-5"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
@@ -225,7 +225,7 @@
       },
       "other": "1-5"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "RenderThread",
         "cpu": 7,
@@ -303,7 +303,7 @@
       },
       "other": "0-5"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
@@ -383,7 +383,7 @@
       "comm": {},
       "other": "0-5"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "Thread-",
         "cpu": 7,
@@ -443,7 +443,7 @@
       },
       "other": "0-6"
     },
-    "__scx": {
+    "scx": {
       "heaviest": {
         "comm": "UnityMain",
         "cpu": 7,
