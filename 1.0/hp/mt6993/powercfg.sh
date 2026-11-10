@@ -183,6 +183,27 @@ if [[ -d /proc/mi_display ]]; then
   am force-stop com.xiaomi.joyose
 fi
 
+# Vivo
+if [[ -e /sys/rsc ]]; then
+  lock_value 0 /sys/rsc/fas/enable
+  lock_value 0 /sys/rsc/fas/fla_enable
+  lock_value 0 /sys/rsc/fas/fla_break_freq_enable
+  lock_value 0 /sys/rsc/fas/deplist_render_enable
+  lock_value 1 /sys/rsc/svp/disable_input_boost
+  lock_value 0 /sys/rsc/enabled
+  lock_value 0 /sys/rsc/futex_enable
+  lock_value 0 /sys/rsc/rsc_dyn_svp_enable
+  lock_value 0 /sys/rsc/qos/qos_enable
+  lock_value 0 /sys/rsc/qos/qos_bw_enable
+  lock_value 0 /sys/rsc/qos/qos_cpu_enable
+  lock_value 0 /sys/rsc/qos/qos_locking_promotion_enable
+  lock_value 0 /sys/rsc/frame_set_priority_enable
+  lock_value 0 /sys/rsc/svp/svp_enable
+  lock_value 0 /sys/module/vivo_rsc/parameters/enable_rsc
+  lock_value 0x80000001 /sys/rsc/rsc_switch
+  setprop persist.vivo.qos.startapp.boost 0
+fi
+
 # Low Battery Throttling
 echo "low_battery_throttling"
 echo "Utest 0" > /sys/devices/platform/low-battery-throttling/low_battery_protect_ut
@@ -287,4 +308,3 @@ gpu_ulimit(){
   # echo "disable" > /sys/kernel/thermal/gpt
 }
 gpu_ulimit
-

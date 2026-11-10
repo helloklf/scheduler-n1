@@ -95,23 +95,27 @@
 
     "powersave_active": [
       ["@preset", "common_active"],
+      ["@cpu_freqs_max", "#1800000", "#1900000", "#2100000"],
       ["@cpu_freqs_min", "#600000", "#600000", "#600000"],
       ["@ioctl", "/proc/easmgr/eas_ioctl",
         "0x40046716", "15", "0x40046718", "15", "0x4004671A", "15"]
     ],
     "powersave_inactive": [
       ["@preset", "common_inactive"],
+      ["@cpu_freqs_max", "#1800000", "#1700000", "#1800000"],
       ["@ioctl", "/proc/easmgr/eas_ioctl",
         "0x40046716", "5", "0x40046718", "2", "0x4004671A", "2"]
     ],
     "balance_active": [
       ["@preset", "common_active"],
+      ["@cpu_freqs_max", "#2100000", "#2400000", "#2600000"],
       ["@cpu_freqs_min", "#600000", "#700000", "#700000"],
       ["@ioctl", "/proc/easmgr/eas_ioctl",
         "0x40046716", "20", "0x40046718", "18", "0x4004671A", "18"]
     ],
     "balance_inactive": [
       ["@preset", "common_inactive"],
+      ["@cpu_freqs_max", "#2000000", "#2000000", "#2000000"],
       ["@ioctl", "/proc/easmgr/eas_ioctl",
         "0x40046716", "12", "0x40046718", "10", "0x4004671A", "10"]
     ],
@@ -153,8 +157,7 @@
     "powersave": {
       "app": [
         ["@preset", "common_app"],
-        ["@preset", "powersave_active"],
-        ["@cpu_freqs_max", "#1800000", "#1900000", "#2300000"]
+        ["@preset", "powersave_active"]
       ],
       "game": [
         ["@ioctl", "/proc/easmgr/eas_ioctl",
@@ -167,8 +170,7 @@
     "balance": {
       "app": [
         ["@preset", "common_app"],
-        ["@preset", "balance_active"],
-        ["@cpu_freqs_max", "#2100000", "#2400000", "#2600000"]
+        ["@preset", "balance_active"]
       ],
       "game": [
         ["@ioctl", "/proc/easmgr/eas_ioctl",
